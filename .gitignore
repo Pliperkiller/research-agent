@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+colormap_report.png
+.DS_Store

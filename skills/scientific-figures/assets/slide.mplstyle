@@ -1,0 +1,68 @@
+# slide.mplstyle - generado por la skill scientific-figures
+# Tamanos pensados para el medio; no los sobreescribas panel por panel.
+
+figure.figsize      : 10.0, 5.6
+figure.dpi          : 110
+savefig.dpi         : 200
+savefig.format      : png
+savefig.bbox        : tight
+savefig.pad_inches  : 0.02
+savefig.transparent : False
+figure.constrained_layout.use : True
+
+font.size           : 16
+axes.titlesize      : 16
+axes.labelsize      : 16
+xtick.labelsize     : 14
+ytick.labelsize     : 14
+legend.fontsize     : 14
+figure.titlesize    : 16
+
+font.family         : sans-serif
+mathtext.fontset    : dejavusans
+
+# sin chartjunk: solo los dos ejes que sostienen el dato
+axes.spines.top     : False
+axes.spines.right   : False
+axes.linewidth      : 0.8
+axes.edgecolor      : 333333
+axes.facecolor      : white
+figure.facecolor    : white
+axes.grid           : False
+grid.color          : cccccc
+grid.linewidth      : 0.5
+grid.alpha          : 0.5
+
+axes.axisbelow      : True
+axes.titlelocation  : left
+axes.titlepad       : 6.0
+axes.labelpad       : 4.0
+
+lines.linewidth     : 2.4
+lines.markersize    : 7.0
+lines.solid_capstyle: round
+
+xtick.direction     : out
+ytick.direction     : out
+xtick.major.size    : 3.0
+ytick.major.size    : 3.0
+xtick.major.width   : 0.8
+ytick.major.width   : 0.8
+xtick.minor.visible : True
+ytick.minor.visible : True
+xtick.minor.size    : 1.5
+ytick.minor.size    : 1.5
+
+legend.frameon      : False
+legend.handlelength : 1.6
+legend.borderaxespad: 0.4
+
+image.cmap          : viridis
+image.origin        : lower
+image.interpolation : nearest
+
+errorbar.capsize    : 2.0
+scatter.edgecolors  : none
+
+# paleta cualitativa segura para daltonismo (Okabe-Ito)
+axes.prop_cycle : cycler('color', ['0072B2', 'D55E00', '009E73', 'CC79A7', 'E69F00', '56B4E9', 'F0E442', '000000'])

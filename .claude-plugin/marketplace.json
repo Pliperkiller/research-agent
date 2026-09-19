@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "pliperkiller-marketplace",
+  "owner": {
+    "name": "pliperkiller"
+  },
+  "metadata": {
+    "description": "Claude Code plugins for scientific and data work",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "research-agent",
+      "description": "Rules and workflows that teach a coding agent to produce scientific research output: figures, notebooks, papers, slides and analysis scripts. Every deliverable follows a declare-build-audit workflow with verifiable rules instead of defaults.",
+      "version": "0.1.0",
+      "source": "./",
+      "category": "research",
+      "tags": ["research", "science", "matplotlib", "latex", "notebooks", "reproducibility"]
+    }
+  ]
+}
