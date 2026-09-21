@@ -1,10 +1,22 @@
 {
   "name": "research-agent",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Rules and workflows that teach a coding agent to produce scientific research output: figures, notebooks, papers, slides and analysis scripts.",
   "author": {
     "name": "pliperkiller"
   },
   "homepage": "https://github.com/pliperkiller/research-agent",
-  "keywords": ["research", "science", "matplotlib", "figures", "notebooks", "latex", "reproducibility"]
+  "keywords": [
+    "research",
+    "science",
+    "matplotlib",
+    "figures",
+    "notebooks",
+    "latex",
+    "reproducibility",
+    "python",
+    "code-style",
+    "readability",
+    "naming"
+  ]
 }
