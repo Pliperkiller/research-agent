@@ -69,5 +69,15 @@ limits.
 python scripts/validate.py
 ```
 
-Checks the manifests, the skill frontmatter, and runs the linter against the
-known-good and known-bad fixtures.
+Checks the manifests, the skill frontmatter, and runs every linter against its
+known-good and known-bad fixtures. A skill that ships a linter adds its row to
+`LINTER_FIXTURES` in that file, so the CI proves the linter still fires and
+still clears.
+
+## A known gap
+
+The plugin's own tooling is not audited by `scientific-code`. `validate.py` and
+`figure_lint.py` use names like `p`, `fm`, `mk` and `kw`, and their helpers are
+not annotated. The linters run against their fixtures only, never against the
+repository. Cleaning that up is a separate change, and pretending otherwise
+would turn every skill PR into a refactor.

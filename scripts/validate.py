@@ -6,7 +6,7 @@ Checks:
   2. Every skill has a SKILL.md with name and description frontmatter, and the
      name matches its directory.
   3. Bundled scripts compile.
-  4. The figure linter flags the known-bad fixture and clears the known-good one.
+  4. Each skill's linter flags its known-bad fixture and clears its known-good one.
 
 Usage:
     python scripts/validate.py
@@ -21,6 +21,15 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 FAILURES: list[str] = []
+
+# (linter, known-bad fixture, known-good fixture). A skill that ships a linter
+# adds its row here so the CI proves the linter still fires and still clears.
+LINTER_FIXTURES = (
+    ("skills/scientific-figures/scripts/figure_lint.py",
+     "bad_figure.py", "good_figure.py"),
+    ("skills/scientific-code/scripts/code_style_lint.py",
+     "bad_code.py", "good_code.py"),
+)
 
 
 def check(condition: bool, message: str) -> None:
@@ -82,11 +91,13 @@ def main() -> int:
             print(f"  FAIL {py.relative_to(ROOT)}: {exc}")
             FAILURES.append(str(py))
 
-    print("figure linter against fixtures")
-    lint = ROOT / "skills" / "scientific-figures" / "scripts" / "figure_lint.py"
-    if lint.exists():
-        for name, expect_findings in (("bad_figure.py", True),
-                                      ("good_figure.py", False)):
+    print("linters against fixtures")
+    for rel_lint, bad_name, good_name in LINTER_FIXTURES:
+        lint = ROOT / rel_lint
+        check(lint.exists(), f"{rel_lint} is present")
+        if not lint.exists():
+            continue
+        for name, expect_findings in ((bad_name, True), (good_name, False)):
             fixture = ROOT / "tests" / "fixtures" / name
             out = subprocess.run(
                 [sys.executable, str(lint), str(fixture), "--json"],

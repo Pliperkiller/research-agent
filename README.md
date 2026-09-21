@@ -77,6 +77,27 @@ reproducible, always shipped with a caption), four style sheets
 
 Plus the `/audit-figure` command to review a figure that already exists.
 
+### scientific-code — available
+
+Scientific code a human who did not write it can read: analysis scripts,
+notebook cells, simulation and model modules.
+
+Seven hard rules (names that read as prose with no `u0`/`X`/`lam`, English
+identifiers and docstrings with comments in the declared working language,
+comment the why and comment in excess, documented and typed public interfaces,
+units carried in the name, no magic literals, functions that fit on one
+screen), a script header template, a glossary that maps the cryptic symbol you
+were about to type to the name to write instead, and one verification script:
+
+- `code_style_lint.py` — static AST and token analysis over `.py` and `.ipynb`:
+  cryptic and abbreviated names, Spanish identifiers and docstrings, mixed
+  comment languages, comment density, comments that restate the code,
+  undocumented decisions (`clip`, `detach`, seeds, casts), missing docstrings
+  and type hints, quantities without units, repeated literals and oversized
+  functions. Its language detection is a curated word list, and it says so.
+
+Plus the `/audit-code` command to review code that already exists.
+
 ### Planned
 
 | Skill | Scope |
@@ -84,7 +105,7 @@ Plus the `/audit-figure` command to review a figure that already exists.
 | `research-notebooks` | notebook structure: markdown before code, formulas before implementation, no hidden state, a notebook that runs top to bottom on a clean kernel |
 | `paper-writing` | paper and article structure, claim-evidence discipline, citation hygiene, what belongs in each section |
 | `research-slides` | talks and defenses: one idea per slide, figures re-rendered for the medium, no walls of text |
-| `analysis-scripts` | reproducible analysis: seeds, pinned environments, data paths, separating computation from presentation |
+| `analysis-scripts` | reproducible execution: seeds, pinned environments, explicit data paths, deterministic outputs, separating computation from presentation (naming and comments live in `scientific-code`) |
 
 See `docs/adding-a-skill.md` for the shape a new skill must follow.
 

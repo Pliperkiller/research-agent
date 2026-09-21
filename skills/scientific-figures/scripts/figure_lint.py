@@ -83,7 +83,7 @@ def analyze(src: str) -> tuple[list[Finding], dict]:
     try:
         tree = ast.parse(src)
     except SyntaxError as exc:
-        return [Finding("PARSE", exc.lineno or 0, f"no se pudo parsear: {exc.msg}")], {}
+        return [Finding("PARSE", exc.lineno or 0, f"could not parse: {exc.msg}")], {}
 
     findings: list[Finding] = []
     seen = {
